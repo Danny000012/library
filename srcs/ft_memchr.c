@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dseabel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/09 15:13:04 by dseabel           #+#    #+#             */
-/*   Updated: 2018/05/22 17:38:33 by dseabel          ###   ########.fr       */
+/*   Created: 2018/05/22 16:03:21 by dseabel           #+#    #+#             */
+/*   Updated: 2018/05/22 16:34:58 by dseabel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int i;
-	int j;
+	unsigned char	*str;
+	unsigned char	str2;
+	int				i;
 
 	i = 0;
-	while (str[i] != '\0')
+	str2 = (unsigned char)c;
+	str = (unsigned char *)s;
+	while (n--)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
+		if (str[i] == str2)
+			return (str + i);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

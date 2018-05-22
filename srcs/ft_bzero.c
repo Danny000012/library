@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dseabel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/09 15:13:04 by dseabel           #+#    #+#             */
-/*   Updated: 2018/05/22 17:38:33 by dseabel          ###   ########.fr       */
+/*   Created: 2018/05/22 14:20:19 by dseabel           #+#    #+#             */
+/*   Updated: 2018/05/22 14:28:18 by dseabel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_bzero(void *s, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	unsigned char *str;
 
 	i = 0;
-	while (str[i] != '\0')
+	str = (unsigned char*)s;
+	while (i < n)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (str + i);
-			}
-			j++;
-		}
+		str[i] = 0;
 		i++;
 	}
-	return (0);
 }
